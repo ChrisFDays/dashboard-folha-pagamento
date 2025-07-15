@@ -1,4 +1,4 @@
-Ao cumpriment-lo apresento, 
+Ao cumpriment-lo(a) apresento, 
 
 Este projeto de Business Intelligence tem como objetivo analisar o absenteísmo na folha de pagamento, identificando padrões, causas e possíveis impactos por departamento se ocorridas por faltas ou atestados, levando o impacto no mês pelo turno(diurno ou noturno). O dashboard foi desenvolvido utilizando SQL Server para estruturação de dados, DAX para criação de medidas, e Power BI para visualização.Inciando pelo link do Dashboard interativo: https://app.powerbi.com/view?r=eyJrIjoiZTY3OGEyMjMtZmE3MC00ZDYzLWFlYjgtNWJiNDFmNWU0ZmJkIiwidCI6ImEzNGRiODZkLTVhYTEtNGVkNi04MTFlLTU2NDhiOWE2ZTY1NiJ9
 
@@ -11,9 +11,12 @@ Esta modelagem permite um controle detalhado e confiável das jornadas e substit
 Ex de tabelas: 
 ![Tabelas Folha de Pagamento](https://github.com/user-attachments/assets/5051dc73-3d32-4bc3-ad04-9d8204809e3d)
 
-Desenvolvimento de queries SQL para seleção, transformação e junção dos dados necessários ao modelo.
+Desenvolvimento de queries SQL para seleção, transformação e junção dos dados necessários ao modelo:
+Um exemplo de querey ao projeto, foi desenvolvida uma consulta em SQL Server para estimar o impacto do absenteísmo, considerando o custo adicional de horas extras necessárias para cobertura. O cálculo aplica um fator de hora extra conforme o turno do colaborador substituído: para o turno diurno, utiliza-se um fator de 0,5 sobre as horas extras do substituto, refletindo cobertura parcial. Para o turno noturno, o fator é 1,0, prevendo cobertura integral devido à menor disponibilidade de pessoal nesse horário.
+Além disso, o modelo impõe um limite de 50% da carga horária mensal do substituto para as horas extras, garantindo conformidade com restrições trabalhistas e evitando excedentes. A consulta também assegura que a substituição ocorra entre colaboradores do mesmo cargo e departamento, mantendo alinhamento funcional e consistência nos custos.
+Essa lógica permite calcular de forma mais precisa o custo do absenteísmo e oferece suporte técnico sólido para decisões estratégicas de gestão de equipe e orçamento.
 
-Exemplo de uma query utilizada:
+Exemplo da query utilizada:
 WITH MesesDoPeriodo AS (
     SELECT 'JANEIRO' AS Mes, 1 AS MesNum UNION ALL
     SELECT 'FEVEREIRO', 2 UNION ALL
