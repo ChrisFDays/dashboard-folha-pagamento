@@ -17,15 +17,7 @@ Além disso, o modelo impõe um limite de 50% da carga horária mensal do substi
 Essa lógica permite calcular de forma mais precisa o custo do absenteísmo e oferece suporte técnico sólido para decisões estratégicas de gestão de equipe e orçamento.
 
 Exemplo da query utilizada:
-WITH MesesDoPeriodo AS (
-    SELECT 'JANEIRO' AS Mes, 1 AS MesNum UNION ALL
-    SELECT 'FEVEREIRO', 2 UNION ALL
-    SELECT 'MARÇO', 3 UNION ALL
-    SELECT 'ABRIL', 4 UNION ALL
-    SELECT 'MAIO', 5 UNION ALL
-    SELECT 'JUNHO', 6
-),
-CalculoValorHE_porSubstituicao AS (
+
     SELECT
         HE."Cartão Ponto" AS CP_Substituido,
         HE.Mês AS Mes_Ocorrencia,
